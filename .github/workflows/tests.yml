@@ -1,0 +1,64 @@
+# Ce fichier est une configuration yaml pour des tests
+# automatisés de cette application par GitHub. En effet,
+# ce fichier est envoyé sur GitHub pour lui demander
+# d'exécuter des tests à chaque fois que l'application
+# est poussée sur GitHub par "git push".
+# Tests d'intégration continue CI
+# Attention !!! à changer...
+
+name: Tests scientifiques
+
+on: # lance ce workflow lorsqu'un push est effectué ou une pull request est créée/modifiée
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest # GitHub crée temporairement une machine Linux pour ce projet
+    services: # petite base PostgreSQL temporaire, créée uniquement pendant les tests
+      postgres:
+        image: postgres:16
+
+        env:
+          POSTGRES_DB: scientific_simulation_lab_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+
+        ports:
+          - 5432:5432
+
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGDATABASE: scientific_simulation_lab_test
+      PGUSER: postgres
+      PGPASSWORD: postgres
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v7 # récupère le code GitHub sur cette machine
+
+      - name: Installer Python
+        uses: actions/setup-python@v7 # installe python
+        with:
+          python-version: "3.14"
+
+      - name: Installer les dépendances
+        working-directory: backend
+        run: | # reconstitue l'environnent logiciel
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Initialiser la base de test # Initialisation de cette base temporaire
+        working-directory: backend
+        run: |
+          psql -f database/schema.sql
+
+      - name: Exécuter les tests
+        working-directory: backend
+        run: python -m pytest # exécute les tests
