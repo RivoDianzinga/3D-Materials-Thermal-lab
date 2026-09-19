@@ -1,0 +1,239 @@
+# ============================================================
+# SECRETS / CONFIGURATION LOCALE
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+*.key
+*.pem
+
+
+# ============================================================
+# PYTHON
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.coverage
+htmlcov/
+
+*.egg-info/
+dist/
+build/
+
+
+# ============================================================
+# NODE.JS / JAVASCRIPT
+# ============================================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# ============================================================
+# JAVA
+# ============================================================
+
+*.class
+target/
+.gradle/
+build/
+
+*.jar
+*.war
+*.ear
+
+
+# ============================================================
+# C / C++
+# ============================================================
+
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.mod
+
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+
+# ============================================================
+# IDE / EDITEURS
+# ============================================================
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+.idea/
+*.swp
+*.swo
+
+
+# ============================================================
+# SYSTEME D'EXPLOITATION
+# ============================================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+# ============================================================
+# LOGS / FICHIERS TEMPORAIRES
+# ============================================================
+
+*.log
+*.tmp
+*.temp
+*.cache
+
+
+# ============================================================
+# BASES DE DONNEES / SAUVEGARDES LOCALES
+# ============================================================
+
+*.dump
+*.backup
+*.bak
+
+
+# ============================================================
+# NOTEBOOKS JUPYTER
+# ============================================================
+
+.ipynb_checkpoints/
+-----------------------------------------------------------------------------------------------------------------------------------
+Pour tes futurs projets scientifiques, je te proposerais de garder un template générique .env.example, puis de ne conserver que les variables réellement utiles au projet.
+
+# ============================================================
+# APPLICATION
+# ============================================================
+
+APP_NAME=Scientific Simulation Lab
+APP_ENV=development
+DEBUG=true
+
+HOST=0.0.0.0
+PORT=8000
+
+
+# ============================================================
+# DATABASE
+# ============================================================
+
+PGHOST=localhost
+PGPORT=5432
+PGDATABASE=scientific_simulation_lab
+PGUSER=postgres
+PGPASSWORD=your_password
+
+
+# ============================================================
+# API / FRONTEND
+# ============================================================
+
+API_BASE_URL=http://localhost:8000
+FRONTEND_URL=http://localhost:5500
+
+CORS_ORIGINS=http://localhost:5500
+
+
+# ============================================================
+# SCIENTIFIC COMPUTATION
+# ============================================================
+
+COMPUTE_BACKEND=python
+
+DEFAULT_N_POINTS=500
+
+NUM_THREADS=4
+
+RESULTS_DIRECTORY=./data/results
+TEMP_DIRECTORY=./data/tmp
+
+
+# ============================================================
+# SCIENTIFIC ENGINE
+# ============================================================
+
+SCIENTIFIC_ENGINE_PATH=
+
+MPI_PROCESSES=1
+OPENMP_THREADS=1
+
+
+# ============================================================
+# STORAGE
+# ============================================================
+
+DATA_DIRECTORY=./data
+
+STORAGE_BACKEND=local
+
+S3_BUCKET=
+S3_REGION=
+
+
+# ============================================================
+# LOGGING
+# ============================================================
+
+LOG_LEVEL=INFO
+LOG_DIRECTORY=./logs
+
+
+# ============================================================
+# AUTHENTICATION / SECURITY
+# ============================================================
+
+SECRET_KEY=change_me
+
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+
+
+# ============================================================
+# EXTERNAL SERVICES
+# ============================================================
+
+EXTERNAL_API_URL=
+EXTERNAL_API_KEY=
+
+
+# ============================================================
+# HPC / JOB SCHEDULER
+# ============================================================
+
+HPC_ENABLED=false
+
+SLURM_PARTITION=
+SLURM_ACCOUNT=
+SLURM_TIME_LIMIT=
