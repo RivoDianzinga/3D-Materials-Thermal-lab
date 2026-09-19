@@ -97,10 +97,6 @@ physique d'entrée et de limiter la propagation de valeurs non finies ou numéri
 
 ```text
 3D-Materials-Thermal-lab/
-├── .github/
-│   └── workflows/
-│       ├── pages.yml
-│       └── tests.yml
 ├── backend/
 │   ├── api/
 |   |    ├── scr/
@@ -111,12 +107,12 @@ physique d'entrée et de limiter la propagation de valeurs non finies ou numéri
 |       └── fortran/
 |       └── Makefile
 |── database/
+|     └── schema.sql
 ├── frontend/
 │   ├── assets/
 │   ├── index.html
 │   ├── script.js
 │   └── style.css
-├── .env
 ├── .gitignore
 └── README.md
 ```
