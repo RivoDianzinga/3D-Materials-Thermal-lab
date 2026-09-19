@@ -89,9 +89,10 @@ Makefile
 # IDE / EDITEURS
 # ============================================================
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+.vscode/
+#.vscode/*
+#!.vscode/settings.json
+#!.vscode/extensions.json
 
 .idea/
 *.swp
